@@ -1,0 +1,122 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Poppins", sans-serif;
+}
+p {
+  color: #444;
+  line-height: 25px;
+}
+.container {
+  width: 85%;
+  margin: auto;
+}
+header {
+  padding-bottom: 50px;
+}
+header,
+.intro-section {
+  background-color: #ededed;
+}
+.header-wrap {
+  display: flex;
+  justify-content: space-between;
+}
+.logo {
+  width: 20%;
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+}
+.logo img {
+  margin: 1em;
+  width: 100%;
+}
+.menu-box {
+  width: 75%;
+}
+.menu-box ul {
+  float: right;
+}
+.menu-box ul li {
+  display: inline-block;
+}
+.menu-box ul li a {
+  text-decoration: none;
+  color: black;
+  padding: 20px 20px;
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+}
+.menu-box .active {
+  color: #f83b3b;
+}
+.half-width {
+  display: flex;
+  justify-content: space-between;
+}
+
+.intro-img {
+  width: 50%;
+}
+.intro-img img {
+  width: 100%;
+}
+.intro-wrap {
+  padding-top: 2em;
+  padding-bottom: 8em;
+  overflow: hidden;
+}
+.intro-title {
+  width: 50%;
+}
+.intro-title h1 {
+  color: #363958;
+  font-size: 70px;
+  line-height: 80px;
+  margin-bottom: 20px;
+}
+.intro-title span {
+  display: block;
+}
+.span-color {
+  color: #f83b3b;
+}
+.intro-title p {
+  width: 80%;
+  margin-top: 10px;
+  margin-bottom: 50px;
+  text-align: justify;
+}
+.link-button {
+  color: white;
+  text-decoration: none;
+  background-image: linear-gradient(90deg, #fc5858, crimson);
+  padding: 15px 30px;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: bold;
+}
+footer {
+  background-color: #222;
+  text-align: center;
+  padding: .5rem 0;
+}
+footer h1 {
+  color: #f83b3b;
+  margin-bottom: .2rem;
+  font-family: "Berkshire Swash", cursive;
+}
+footer h1 span {
+  color: #666;
+}
+footer p {
+  color: #888;
+  margin-bottom: 1rem;
+}
+footer span {
+  color: #999;
+}
