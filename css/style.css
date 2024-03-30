@@ -14,7 +14,7 @@ p {
   margin: auto;
 }
 header {
-  padding-bottom: 50px;
+  padding-bottom: 10px;
 }
 header,
 .intro-section {
@@ -23,6 +23,7 @@ header,
 .header-wrap {
   display: flex;
   justify-content: space-between;
+  
 }
 .logo {
   width: 20%;
@@ -46,7 +47,7 @@ header,
 .menu-box ul li a {
   text-decoration: none;
   color: black;
-  padding: 20px 20px;
+  padding: 34% 20px;
   display: block;
   font-size: 20px;
   font-weight: 700;
@@ -120,3 +121,81 @@ footer p {
 footer span {
   color: #999;
 }
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.spin {
+    animation: spin 8s linear infinite; /* Adjust duration and timing function as needed */
+}
+
+.intro-section {
+    background-image: url("../images/bg-hero.jpg");
+    background-size: cover;
+    background-position: center;
+    padding: 50px 0; /* Adjust padding as needed */
+  }
+
+  .intro-wrap {
+    background-color: rgba(255, 255, 255, 0.8); /* Adjust background color and opacity as needed */
+    padding: 30px; /* Adjust padding as needed */
+    border-radius: 10px; /* Optional: Add border radius for a rounded background */
+}
+
+.intro-img {
+    text-align: center; /* Align image to the center horizontally */
+}
+.social-wrap {
+  width: 80%;
+  margin: 5rem auto;
+  padding: 5rem;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px 5px;
+  border-radius: 20px;
+  background-color:beige;
+}
+.social-wrap h1 {
+  font-family: "Berkshire Swash", cursive;
+  font-size: 60px;
+  color: #333;
+}
+.delivery-header {
+  width: 60%;
+  text-align: center;
+  margin: auto;
+  padding-top: 5rem;
+  padding-bottom: 2rem;
+}
+.delivery-header h1 {
+  margin-top: 20px;
+  color: #444;
+  font-size: 45px;
+  margin-bottom: 20px;
+}
+.delivery-box span {
+  color: #363958;
+}
+.delivery-wrap {
+  padding: 20px 0;
+  overflow: hidden;
+}
+.delivery-box {
+  width: 25%;
+  padding: 2%;
+  text-align: center;
+}
+
+.delivery-box img {
+  width: 100%;
+  height: 300px;
+}
+.delivery-box h2 {
+  font-size: 30px;
+  margin: 10px 0;
+}
+.delivery-box p {
+  width: 100%;
+  text-align: justify;
+}
+
