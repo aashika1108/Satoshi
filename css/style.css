@@ -4,57 +4,128 @@
 }
 body {
   font-family: "Poppins", sans-serif;
+  width: 100%;
 }
 p {
   color: #444;
   line-height: 25px;
 }
 .container {
-  width: 85%;
+  width: 90%;
   margin: auto;
 }
 header {
-  padding-bottom: 10px;
+  padding: 10px 0px;
 }
+
 header,
 .intro-section {
   background-color: #ededed;
 }
+
 .header-wrap {
   display: flex;
-  justify-content: space-between;
-  
+  justify-content: space-between; /* Add space between logo and menu */
+  align-items: center; /* Align items vertically */
 }
+
 .logo {
   width: 20%;
-  padding: 10px 0;
-  display: flex;
-  align-items: center;
 }
+
+.menu-box {
+  width: 80%; /* Adjust width as needed */
+  display: flex; /* Use flexbox for menu-box */
+  justify-content: flex-end; /* Align menu-box to the right */
+}
+
 .logo img {
   margin: 1em;
   width: 100%;
 }
-.menu-box {
-  width: 75%;
-}
-.menu-box ul {
+
+.menu-box .menu-toggle {
+  display: none; /* Initially hide the toggle button */
   float: right;
 }
-.menu-box ul li {
-  display: inline-block;
+
+.menu-box ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
 }
+
+.menu-box ul li {
+  margin-left: 20px; /* Add spacing between menu items */
+}
+
+.menu-box ul li:first-child {
+  margin-left: 0; /* Remove margin from the first menu item */
+}
+
 .menu-box ul li a {
   text-decoration: none;
-  color: black;
-  padding: 34% 20px;
-  display: block;
+  color: rgb(85, 83, 83);
   font-size: 20px;
   font-weight: 700;
 }
+
 .menu-box .active {
   color: #f83b3b;
 }
+
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+}
+
+.menu-toggle .line {
+  width: 30px;
+  height: 3px;
+  background-color: rgb(91, 91, 91);
+  margin: 5px;
+}
+
+@media screen and (max-width: 768px) {
+  .header-wrap {
+    flex-direction: row; /* Stack items vertically */
+  }
+
+  .menu-box {
+    width: 60%;
+    /* margin-top: auto; Add some space between logo and menu */
+  }
+
+  .menu-box .menu-toggle {
+    display: inline-block ;/* Show the toggle button */
+    cursor: pointer;
+  }
+
+  .menu-box ul {
+    margin-top: auto;
+    display: none; /* Hide the menu items by default */
+    flex-direction: column; /* Stack menu items vertically */
+  }
+
+  .menu-box ul li {
+    margin-left: 0; /* Reset margin for mobile layout */
+    margin-bottom: 10px; /* Add space between menu items */
+  }
+
+  .menu-box ul li:first-child {
+    margin-top: 10px; /* Add some top margin to the first menu item */
+  }
+
+  .menu-box ul li a {
+    padding: 10px 20px; /* Adjust padding for mobile layout */
+  }
+
+  .menu-box ul.show {
+    display: flex; /* Show the menu items when toggled */
+  }
+}
+
 .half-width {
   display: flex;
   justify-content: space-between;
@@ -101,31 +172,64 @@ header,
   font-size: 18px;
   font-weight: bold;
 }
-
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .intro-wrap {
+    flex-direction: column-reverse; /* Reverse the flex direction to stack items vertically and place image first */
+  }
+
+  .intro-img {
+    width: 100%; /* Make the image full width */
+  }
+
+  .intro-title {
+    width: 100%; /* Make the content full width */
+    text-align: center; /* Center align the content */
+  }
+  .intro-title h1 {
+    color: #363958;
+    font-size: 60px;
+    line-height: 70px;
+    margin-bottom: 10px;
+  }
+  .intro-title p {
+    width: 100%; /* Make the content full width */
+    text-align: justify; /* Center align the content */
+  }
 }
 
 .spin {
-    animation: spin 8s linear infinite; /* Adjust duration and timing function as needed */
+  animation: spin 10s linear infinite; /* Adjust duration and timing function as needed */
 }
 
 .intro-section {
-    background-image: url("../images/bg-hero.jpg");
-    background-size: cover;
-    background-position: center;
-    padding: 50px 0; /* Adjust padding as needed */
-  }
+  background-image: url("../images/bg-hero.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 50px 0; /* Adjust padding as needed */
+}
 
-  .intro-wrap {
-    background-color: rgba(255, 255, 255, 0.8); /* Adjust background color and opacity as needed */
-    padding: 30px; /* Adjust padding as needed */
-    border-radius: 10px; /* Optional: Add border radius for a rounded background */
+.intro-wrap {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ); /* Adjust background color and opacity as needed */
+  padding: 30px; /* Adjust padding as needed */
+  border-radius: 10px; /* Optional: Add border radius for a rounded background */
 }
 
 .intro-img {
-    text-align: center; /* Align image to the center horizontally */
+  text-align: center; /* Align image to the center horizontally */
 }
 .social-section {
   padding: 5rem 0;
@@ -245,7 +349,24 @@ header,
 }
 .delivery-box p {
   width: 100%;
-  text-align: justify;
+  text-align: justify;
+}
+@media screen and (max-width: 768px) {
+  .delivery-wrap {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    justify-content: center; /* Center align items */
+  }
+
+  .delivery-box {
+    width: 100%; /* Se3t the width to one-third of the container's width */
+    margin: 10px; /* Add some space between boxes */
+  }
+
+  .delivery-box img {
+    width: 100%; /* Make the images fill the container */
+    height: auto; /* Maintain aspect ratio */
+  }
 }
 
 footer {
