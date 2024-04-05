@@ -484,6 +484,7 @@ footer {
   padding: 70px;
   font-family: "Roboto", sans-serif;
   animation: footer-animation 15s ease infinite;
+  margin-top: 30px;
 }
 
 .footer-content {
@@ -516,7 +517,6 @@ footer {
 
 .footer-section ul li a:hover {
   color: burlywood;
-  text-decoration: none;
 }
 
 .footer-section ul i {
@@ -525,6 +525,11 @@ footer {
 
 .footer-section ul span {
   font-size: 17px;
+}
+
+.footer-section ul span a:link {
+  color: #ededed;
+  text-decoration: none;
 }
 
 .footer-section li {
@@ -589,6 +594,7 @@ main {
 }
 
 main h1 {
+  font-size: 2rem;
   color: aliceblue;
   margin-bottom: 1rem;
   text-align: center;
@@ -633,6 +639,34 @@ main h1 {
   padding: 20px;
   border-radius: 5px;
   text-align: center;
-  width: 50%;
+  width: 30%;
   margin: 0 auto 1rem;
+}
+
+#searchInput {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  border: 3px solid #d6a0a0;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+#searchInput:focus {
+  outline: none;
+  border-color: #007bff; 
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+@media screen and (max-width: 768px) {
+  #searchInput {
+      font-size: 14px; 
+  }
+}
+
+@media screen and (max-width: 576px) {
+  #searchInput {
+      padding: 8px; 
+  }
 }
