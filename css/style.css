@@ -11,15 +11,15 @@ body {
 
 @keyframes gradient-animation {
   0% {
-    background-image: linear-gradient(to right, #fdb813, #f7931a);
+    background-image: linear-gradient(to right, #f5f5f5, #e5e5e5);
   }
 
   50% {
-    background-image: linear-gradient(to right, #f7931a, #fdb813);
+    background-image: linear-gradient(to right, #e5e5e5, #f5f5f5);
   }
 
   100% {
-    background-image: linear-gradient(to right, #fdb813, #f7931a);
+    background-image: linear-gradient(to right, #f5f5f5, #e5e5e5);
   }
 }
 
@@ -51,11 +51,6 @@ header {
   padding: 10px 0px;
 }
 
-header,
-.intro-section {
-  background-color: #e5d5ce;
-}
-
 .header-wrap {
   display: flex;
   justify-content: space-between;
@@ -81,6 +76,7 @@ header,
 .menu-box .menu-toggle {
   display: none;
   float: right;
+  margin: 1em;
 }
 
 .menu-box ul {
@@ -146,6 +142,7 @@ header,
     flex-direction: column;
     padding: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 100;
   }
 
   .menu-box ul.show {
@@ -262,6 +259,7 @@ header,
     text-align: justify; /* Center align the content */
   }
 }
+
 .spin {
   animation: spin 10s linear infinite;
 }
@@ -283,13 +281,9 @@ header,
   text-align: center;
 }
 
-.social-section {
-  padding: 5rem 0;
-}
-
 .social-wrap {
   width: 75%;
-  margin: 2rem auto;
+  margin: 1rem auto;
   padding: 2rem;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 6px -1px,
     rgba(0, 0, 0, 0.06) 0px 2px 4px 5px;
@@ -381,6 +375,12 @@ header,
   }
 }
 
+.delivery-section {
+  margin: 5rem;
+  background-color: #fff;
+  border-radius: 1 rem;
+}
+
 .delivery-header {
   width: 60%;
   text-align: center;
@@ -464,7 +464,6 @@ header,
     display: flex;
     flex-wrap: wrap;
   }
-
   .delivery-box {
     width: 100%;
     margin-bottom: 20px;
@@ -583,4 +582,57 @@ button[type="submit"]:hover {
     width: calc(20% - 20px);
     margin-right: 20px;
   }
+}
+
+main {
+  padding: 2rem;
+}
+
+main h1 {
+  color: aliceblue;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.recipe-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+}
+
+.recipe {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.recipe img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+  max-width: 350px;
+}
+
+.recipe h3 {
+  margin: 0 0 0.5rem 0;
+}
+
+.recipe p {
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .recipe-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.box-menu {
+  background-color: #5a5a5a;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  width: 50%;
+  margin: 0 auto 1rem;
 }
