@@ -865,3 +865,27 @@ button[type="submit"]:hover {
   height: 100%;
   border: none;
 }
+
+/* SERVICES*/
+
+.section-heading {
+  text-align: center;
+  margin: 1em 0;
+  background-color: #5a5a5a;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  width: 30%;
+  margin: 0 auto 1rem;
+  color: #e6ebef;
+}
+
+section {
+  height: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2em 0;
+}
+
