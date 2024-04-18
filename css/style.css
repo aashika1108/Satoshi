@@ -889,3 +889,16 @@ section {
   padding: 2em 0;
 }
 
+.row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5em; /* Add gap between columns */
+}
+
+.column {
+  width: 45%; /* Adjust width to fit two columns */
+  padding: 0 1em 2em 1em; /* Adjust padding to add space between rows */
+  text-align: center;
+}
+
