@@ -937,6 +937,20 @@ section {
   letter-spacing: 0.03em;
 }
 
+.icon-wrapper {
+  background-color: #e83939;
+  position: relative;
+  margin: auto;
+  font-size: 30px;
+  height: 2.5em;
+  width: 2.5em;
+  color: #ffffff;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  transition: 0.5s;
+}
+
 .card:hover {
   background-position: 0 100%;
 }
