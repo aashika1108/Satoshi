@@ -937,3 +937,20 @@ section {
   letter-spacing: 0.03em;
 }
 
+.card:hover {
+  background-position: 0 100%;
+}
+
+.card:hover .icon-wrapper {
+  background-color: #ffffff;
+  color: #e83939;
+}
+
+.card:hover h3 {
+  color: #ffffff;
+}
+
+.card:hover p {
+  color: #f0f0f0;
+  font-weight: bold;  
+}
