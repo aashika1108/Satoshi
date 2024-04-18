@@ -908,3 +908,32 @@ section {
   }
 }
 
+.card {
+  max-width: calc(100% - 2in); /* Adjust width to fit within the screen */
+  width: 100%; /* Ensure the card takes up all available width */
+  margin: 0 auto; /* Center the card horizontally */
+  padding: 2em; /* Adjust padding to make each card smaller by 1 inch from left and right */
+  background: linear-gradient(#ffffff 50%, #e83939 50%);
+  background-size: 100% 200%;
+  background-position: 0 2.5%;
+  border-radius: 5px;
+  box-shadow: 0 0 35px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+
+.card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1f194c;
+  margin: 1em 0;
+}
+
+.card p {
+  color: #2f3042;
+  font-size: 15px;
+  line-height: 1.6;
+  letter-spacing: 0.03em;
+}
+
