@@ -36,3 +36,45 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+document.addEventListener("DOMContentLoaded", function () {
+  const signInForm = document.querySelector("#sign-in form");
+
+  // Check if the sign-in form exists before adding the event listener
+  if (signInForm) {
+      signInForm.addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          // Get form values
+          const username = signInForm.elements.username.value;
+          const password = signInForm.elements.password.value;
+
+          // Retrieve users from localStorage
+          const users = JSON.parse(localStorage.getItem("users")) || [];
+
+          // Find the user with the matching username
+          const user = users.find(user => user.username === username);
+
+          // Check if a user with the provided username exists
+          if (!user) {
+              alert("User not found. Please check your username.");
+              return;
+          }
+
+          // Check if the provided password matches the user's password
+          if (user.password !== password) {
+              alert("Incorrect password. Please try again.");
+              return;
+          }
+
+          // If both username and password are correct, log in the user
+          // Display success message
+          alert("Login successful! Welcome, " + user.fullName);
+
+          // Delay the redirection slightly (e.g., 1 second)
+          setTimeout(function () {
+              // Redirect the user to another page after successful login
+              window.location.href = "dashboard.html";
+          }, 1000); // 1000 milliseconds = 1 second
+      });
+  }
+});
