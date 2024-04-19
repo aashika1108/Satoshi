@@ -1038,3 +1038,13 @@ input[type="submit"] {
 input[type="submit"]:hover {
   background-color: #0056b3;
 }
+.form-footer {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #666;
+}
+.logo {
+  width: 300px;
+  height: 90px;
+  margin-bottom: 20px;
+}
