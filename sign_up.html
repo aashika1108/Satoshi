@@ -3,22 +3,27 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
     <link rel="stylesheet" href="./css/style.css">
-    <title>Sign In - Table Tales</title>
+    <title>Sign Up - Table Tales</title>
 </head>
 
 <body>
-    <main id="sign-in">
-        <div class="container-sign-in">
-            <h2>Sign In</h2>
+    <main id="sign-up">
+        <div class="container-sign-up">
+            <img src="./images/Black___White_Minimalist_Business_Logo-removebg-preview.png" alt="Logo" class="logo">
+            <h2>Sign Up</h2>
             <form action="#" method="post">
+                <input type="text" name="fullname" placeholder="Full Name" required>
                 <input type="text" name="username" placeholder="Username" required>
+                <input type="email" name="email" placeholder="Email" required>
                 <input type="password" name="password" placeholder="Password" required>
-                <input type="submit" value="Sign In">
+                <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+                <input type="submit" value="Sign Up">
             </form>
+            <div class="form-footer">
+                Already have an account? <a href="#">Sign In</a>
+            </div>
         </div>
     </main>
 </body>
