@@ -997,7 +997,10 @@ input[type="submit"] {
   box-sizing: border-box;
 }
 
- .section-team {
+/* Our Team */ 
+
+
+.section-team {
   height: auto;
   width: 100%;
   display: flex;
@@ -1010,6 +1013,7 @@ input[type="submit"] {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  gap: 0.5em; 
 }
 
 .team-heading {
