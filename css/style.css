@@ -1007,10 +1007,9 @@ input[type="submit"] {
 }
 
 .row-team {
-  display: block;
+  display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 0.5em; /* Add gap between columns */
 }
 
 .team-heading {
@@ -1050,7 +1049,13 @@ input[type="submit"] {
   top: 0;
   left: 0;
 }
-
+.our-team .team-content {
+  width: 90%;
+  position: absolute;
+  bottom: -40px;
+  padding: 0 25px;
+  transition: all 0.4s ease 0s;
+}
 .our-team:hover .team-content {
   bottom: 1%;
 }
@@ -1083,10 +1088,28 @@ input[type="submit"] {
   list-style: none;
   width: 10%;
   height: 100%;
-  background: #000000;
+  background: #ce5656;
   text-align: center;
   position: absolute;
   top: 0;
   right: 0;
 }
+.our-team .social-links li {
+  margin: 20px 0;
+}
+.our-team .social-links li a {
+  color: #fff;
+  padding: 10px 0;
+}
+.our-team .social-links li a:hover {
+  text-decoration: none;
+}
+@media only screen and (max-width: 768px) {
+  .team-container {
+    flex-direction: column;
+  }
 
+  .our-team {
+    width: 100%;
+  }
+}
