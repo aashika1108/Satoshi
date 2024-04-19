@@ -2,9 +2,11 @@ document.addEventListener("DOMContentLoaded", function () {
   var menuToggle = document.querySelector(".menu-toggle");
   var menuLinks = document.querySelector(".menu-links");
 
-  menuToggle.addEventListener("click", function () {
-    menuLinks.classList.toggle("show"); // Toggle class to show/hide menu
-  });
+  if (menuToggle && menuLinks) {
+    menuToggle.addEventListener("click", function () {
+      menuLinks.classList.toggle("show"); // Toggle class to show/hide menu
+    });
+  }
 });
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -35,8 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  const signUpForm = document.getElementById("signup-form");
-
+  const signUpForm = document.querySelector("#sign-up form");
   // Check if the sign-up form exists before adding the event listener
   if (signUpForm) {
     signUpForm.addEventListener("submit", function (event) {
@@ -44,11 +45,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Get form values
       const fullName = document.getElementById("fullname").value.trim();
+
       const username = document.getElementById("username").value.trim();
+
       const email = document.getElementById("email").value.trim();
+
       const password = document.getElementById("password").value.trim();
+
       const confirmPassword = document
-        .getElementById("confirm_password")
+        .getElementById("confirmpassword")
         .value.trim();
 
       // Validate full name
@@ -84,7 +89,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Retrieve existing users from localStorage or initialize an empty array
       let users = JSON.parse(localStorage.getItem("users")) || [];
-      console.log("Users:, " + JSON.stringify(users));
       // Check if the email already exists
       if (
         users.some((user) => user.email.toLowerCase() === email.toLowerCase())
@@ -113,7 +117,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Password must contain at least one uppercase letter, one lowercase letter, and one number
       const passwordRegex = /^(?=.[a-z])(?=.[A-Z])(?=.*\d).{8,}$/;
-      if (!passwordRegex.test(password)) {
+      if (passwordRegex.test(password)) {
         alert(
           "Password must contain at least one uppercase letter, one lowercase letter, and one number"
         );
