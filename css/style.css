@@ -865,3 +865,106 @@ button[type="submit"]:hover {
   height: 100%;
   border: none;
 }
+
+/* SERVICES*/
+
+.section-heading {
+  text-align: center;
+  margin: 1em 0;
+  background-color: #5a5a5a;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  width: 30%;
+  margin: 0 auto 1rem;
+  color: #e6ebef;
+}
+
+section {
+  height: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2em 0;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5em; /* Add gap between columns */
+}
+
+.column {
+  width: 45%; /* Adjust width to fit two columns */
+  padding: 0 1em 2em 1em; /* Adjust padding to add space between rows */
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .column {
+    width: 100%; /* On smaller screens, display one column per row */
+  }
+}
+
+.card {
+  max-width: calc(100% - 2in); /* Adjust width to fit within the screen */
+  width: 100%; /* Ensure the card takes up all available width */
+  margin: 0 auto; /* Center the card horizontally */
+  padding: 2em; /* Adjust padding to make each card smaller by 1 inch from left and right */
+  background: linear-gradient(#ffffff 50%, #e83939 50%);
+  background-size: 100% 200%;
+  background-position: 0 2.5%;
+  border-radius: 5px;
+  box-shadow: 0 0 35px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+
+.card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1f194c;
+  margin: 1em 0;
+}
+
+.card p {
+  color: #2f3042;
+  font-size: 15px;
+  line-height: 1.6;
+  letter-spacing: 0.03em;
+}
+
+.icon-wrapper {
+  background-color: #e83939;
+  position: relative;
+  margin: auto;
+  font-size: 30px;
+  height: 2.5em;
+  width: 2.5em;
+  color: #ffffff;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  transition: 0.5s;
+}
+
+.card:hover {
+  background-position: 0 100%;
+}
+
+.card:hover .icon-wrapper {
+  background-color: #ffffff;
+  color: #e83939;
+}
+
+.card:hover h3 {
+  color: #ffffff;
+}
+
+.card:hover p {
+  color: #f0f0f0;
+  font-weight: bold;  
+}
