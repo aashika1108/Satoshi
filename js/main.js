@@ -161,6 +161,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Check if the sign-in form exists before adding the event listener
   if (signInForm) {
+    const signedIn = JSON.parse(localStorage.getItem("signedIn"));
+    if (signedIn) {
+      window.location.href = "index.html";  
+    }
     signInForm.addEventListener("submit", function (event) {
       event.preventDefault();
 
@@ -187,7 +191,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // If both username and password are correct, log in the user
       showMessage("Login successful! Welcome, " + user.fullName);
+      const signedIn = true;
 
+      // Store the signedIn flag in local storage
+      localStorage.setItem("signedIn", signedIn);
       // Delay the redirection slightly (e.g., 3 seconds)
       setTimeout(function () {
         // Redirect the user to another page after successful login
@@ -204,5 +211,66 @@ document.addEventListener("DOMContentLoaded", function () {
       messageDiv.textContent = msg;
       messageDiv.style.display = "block";
     }
+  }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const userStatus = document.getElementById("user-status");
+
+  // Retrieve the signed-in status from local storage
+  const signedIn = JSON.parse(localStorage.getItem("signedIn"));
+
+  if (signedIn) {
+    // If signed in, display avatar with logout dropdown
+    userStatus.innerHTML = `
+          <div class="dropdown">
+              <img src="./images/profile_11748243.png" alt="User Avatar" class="avatar" id="avatar-dropdown-toggle">
+              <!-- Dropdown content -->
+              <div class="dropdown-content" id="avatar-dropdown">
+                  <a href="#" id="logout-link">Logout</a>
+              </div>
+          </div>
+      `;
+
+    // Add event listener for logout link
+    const logoutLink = document.getElementById("logout-link");
+    if (logoutLink) {
+      logoutLink.addEventListener("click", function (event) {
+        // Handle logout logic here
+        // Clear user session or remove authentication data
+        // Redirect user to sign-in page after logout
+
+        // Clear the signed-in status from local storage
+        localStorage.removeItem("signedIn");
+
+        window.location.href = "index.html";
+      });
+    }
+
+    // Add event listener for avatar dropdown toggle
+    const avatarDropdownToggle = document.getElementById(
+      "avatar-dropdown-toggle"
+    );
+    if (avatarDropdownToggle) {
+      avatarDropdownToggle.addEventListener("click", function (event) {
+        const avatarDropdown = document.getElementById("avatar-dropdown");
+        if (avatarDropdown) {
+          avatarDropdown.classList.toggle("show");
+        }
+      });
+    }
+
+    // Close the dropdown menu if the user clicks outside of it
+    window.addEventListener("click", function (event) {
+      const avatarDropdown = document.getElementById("avatar-dropdown");
+      if (avatarDropdown && !event.target.matches(".avatar")) {
+        avatarDropdown.classList.remove("show");
+      }
+    });
+  } else {
+    // If not signed in, display sign-in link
+    userStatus.innerHTML = `
+          <a href="sign_in.html">Sign In</a>
+      `;
   }
 });
