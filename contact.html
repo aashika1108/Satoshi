@@ -6,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Table Tales</title>
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" />
     <!-- Add Google Maps API script -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4Bpf-VnS8wYNGe5ofdMk-qmNMWE1dN_E&libraries=places&v=weekly"></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4Bpf-VnS8wYNGe5ofdMk-qmNMWE1dN_E&libraries=places&v=weekly"></script>
 </head>
 
 <body>
@@ -25,12 +26,16 @@
                         <div class="line"></div>
                     </div>
                     <ul class="menu-links">
-                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html" class="active">Home</a></li>
                         <li><a href="about.html">About Us</a></li>
                         <li><a href="menu.html">Menu</a></li>
                         <li><a href="services.html">Services</a></li>
-                        <li><a href="team.html">Our Team</a></li>
-                        <li><a href="contact.html"  class="active">Contact Us</a></li>
+                        <li><a href="team.html">Team</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <!-- Check if user is signed in -->
+                        <!-- If signed in, display avatar and logout link -->
+                        <!-- If not signed in, display sign-in link -->
+                        <li id="user-status"></li>
                     </ul>
                 </nav>
             </div>
@@ -42,7 +47,8 @@
             <div class="contact-wrap">
                 <div class="contact-form">
                     <h1>Contact Us</h1>
-                    <p>Have a question or want to get in touch? Fill out the form below and we'll get back to you as soon as possible.</p>
+                    <p>Have a question or want to get in touch? Fill out the form below and we'll get back to you as
+                        soon as possible.</p>
                     <form action="#" method="POST">
                         <div class="form-group">
                             <label for="name">Name</label>
@@ -66,8 +72,10 @@
                 </div>
             </div>
         </div>
+        <script src="./js/main.js"></script>
+
     </section>
-    
+
     <footer>
         <div class="footer-content">
             <div class="footer-section">
