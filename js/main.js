@@ -163,7 +163,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if (signInForm) {
     const signedIn = JSON.parse(localStorage.getItem("signedIn"));
     if (signedIn) {
-      window.location.href = "index.html";  
+      window.location.href = "index.html";
     }
     signInForm.addEventListener("submit", function (event) {
       event.preventDefault();
@@ -199,7 +199,7 @@ document.addEventListener("DOMContentLoaded", function () {
       setTimeout(function () {
         // Redirect the user to another page after successful login
         window.location.href = "index.html";
-      }, 1500); // 3000 milliseconds = 3 seconds
+      }, 1200); // 3000 milliseconds = 3 seconds
     });
   }
 
@@ -270,32 +270,233 @@ document.addEventListener("DOMContentLoaded", function () {
   } else {
     // If not signed in, display sign-in link
     userStatus.innerHTML = `
-          <a href="sign_in.html">Sign In</a>
-      `;
+          <a href="sign_in.html">Sign In</a>`;
   }
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+  const menu = document.getElementById("box-menu");
+  if (menu) {
+    showAddItemButton();
+    // Add event listener for adding menu items button
+    document
+      .getElementById("addItemButton")
+      .addEventListener("click", function () {
+        openModal("addItemModal");
+      });
 
-//Scroll To Top Button
+    // Add event listener for adding dessert items button
+    document
+      .getElementById("addDessertButton")
+      .addEventListener("click", function () {
+        openModal("addDessertModal");
+      });
 
-// Get the button
-var scrollToTopBtn = document.getElementById("scrollToTopBtn");
+    // Event listener for closing the modal when the close button is clicked
+    document.querySelectorAll(".close").forEach(function (element) {
+      element.addEventListener("click", function () {
+        closeModal(this.getAttribute("data-modal"));
+      });
+    });
 
-// When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function() {
-  scrollFunction();
-};
+    // Event listener for closing the modal when clicking outside the modal
+    window.addEventListener("click", function (event) {
+      if (event.target.classList.contains("modal")) {
+        closeModal(event.target.getAttribute("data-modal"));
+      }
+    });
 
-function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    scrollToTopBtn.style.display = "block";
-  } else {
-    scrollToTopBtn.style.display = "none";
+    // Function to open the modal
+    function openModal(modalId) {
+      document.getElementById(modalId).style.display = "block";
+    }
+
+    // Function to close the modal
+    function closeModal(modalId) {
+      document.getElementById(modalId).style.display = "none";
+    }
+
+    function handleAddItemForm(event) {
+      event.preventDefault();
+
+      const itemName = document.getElementById("itemName").value;
+      const itemDescription = document.getElementById("itemDescription").value;
+      const itemImageURL = document.getElementById("itemImageURL").value;
+
+      // Create HTML elements for the new item
+      const newItemHTML = `
+        <div class="recipe">
+            <img src="${itemImageURL}" alt="${itemName}">
+            <h3>${itemName}</h3>
+            <p>${itemDescription}</p>
+        </div>
+    `;
+
+      // Append the new item to the menu section
+      const menuItemsContainer = document.getElementById("menuItems");
+      menuItemsContainer.appendChild(document.createElement("div")).innerHTML =
+        newItemHTML; // Add the new item using appendChild()
+
+      // Save menu items to local storage
+      const menuItems = JSON.parse(localStorage.getItem("menuItems")) || [];
+      menuItems.unshift(newItemHTML); // Add the new item at the beginning of the array
+      localStorage.setItem("menuItems", JSON.stringify(menuItems));
+
+      // Clear form fields
+      document.getElementById("itemName").value = "";
+      document.getElementById("itemDescription").value = "";
+      document.getElementById("itemImageURL").value = "";
+
+      // Close the modal
+      closeModal("addItemModal");
+    }
+
+    // Function to handle form submission and add dessert item
+    function handleDessertItemForm(event) {
+      event.preventDefault();
+
+      const itemName = document.getElementById("itemDessertName").value;
+      const itemDescription = document.getElementById(
+        "itemDessertDescription"
+      ).value;
+      const itemImageURL = document.getElementById("itemDessertImageURL").value;
+
+      // Create HTML elements for the new item
+      const newItemHTML = `
+        <div class="recipe">
+            <img src="${itemImageURL}" alt="${itemName}">
+            <h3>${itemName}</h3>
+            <p>${itemDescription}</p>
+        </div>
+    `;
+
+      // Append the new item to the dessert section
+      const dessertItemsContainer = document.getElementById("dessert-item");
+      dessertItemsContainer.appendChild(
+        document.createElement("div")
+      ).innerHTML = newItemHTML; // Add the new item using appendChild()
+
+      // Save dessert items to local storage
+      const dessertItems =
+        JSON.parse(localStorage.getItem("dessertItems")) || [];
+      dessertItems.unshift(newItemHTML); // Add the new item at the beginning of the array
+      localStorage.setItem("dessertItems", JSON.stringify(dessertItems));
+
+      // Clear form fields
+      document.getElementById("itemDessertName").value = "";
+      document.getElementById("itemDessertDescription").value = "";
+      document.getElementById("itemDessertImageURL").value = "";
+
+      // Close the modal
+      closeModal("addDessertModal");
+    }
+    // Event listener for adding item form submission
+    document
+      .getElementById("addItemForm")
+      .addEventListener("submit", handleAddItemForm);
+
+    // Event listener for adding dessert item form submission
+    document
+      .getElementById("addDessertForm")
+      .addEventListener("submit", handleDessertItemForm);
   }
+});
+
+// Load menu items from local storage when the page loads
+document.addEventListener("DOMContentLoaded", function () {
+  const menu = document.getElementById("box-menu");
+  if (menu) {
+    const menuItems = JSON.parse(localStorage.getItem("menuItems")) || [];
+    const menuItemsContainer = document.getElementById("menuItems");
+
+    menuItems.forEach(function (itemHTML) {
+      // Check if the item already exists before appending
+      if (!isItemAlreadyAdded(menuItemsContainer, itemHTML)) {
+        const newItemElement = document.createElement("div");
+        newItemElement.innerHTML = itemHTML;
+        menuItemsContainer.appendChild(newItemElement);
+      }
+    });
+
+    const dessertItems = JSON.parse(localStorage.getItem("dessertItems")) || [];
+    const dessertItemsContainer = document.getElementById("dessert-item");
+
+    dessertItems.forEach(function (itemHTML) {
+      // Check if the item already exists before appending
+      if (!isItemAlreadyAdded(dessertItemsContainer, itemHTML)) {
+        const newItemElement = document.createElement("div");
+        newItemElement.innerHTML = itemHTML;
+        dessertItemsContainer.appendChild(newItemElement);
+      }
+    });
+  }
+});
+
+// Function to check if an item already exists in a container
+function isItemAlreadyAdded(container, itemHTML) {
+  // Convert HTML string to DOM element
+  const newItemElement = document.createElement("div");
+  newItemElement.innerHTML = itemHTML;
+
+  // Check if any child element matches the new item's HTML
+  return Array.from(container.children).some(
+    (child) => child.innerHTML === newItemElement.innerHTML
+  );
+}
+// Function to close modal
+function closeModal(modalId) {
+  document.getElementById(modalId).style.display = "none";
 }
 
-// When the user clicks on the button, scroll to the top of the document
-function topFunction() {
-  document.body.scrollTop = 0; // For Safari
-  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+// Function to open modal
+function openModal(modalId) {
+  document.getElementById(modalId).style.display = "block";
+}
+
+// Event listener for close buttons
+document.addEventListener("DOMContentLoaded", function () {
+  const menu = document.getElementById("box-menu");
+  if (menu) {
+    document
+      .getElementById("closeAddItemModal")
+      .addEventListener("click", function () {
+        closeModal("addItemModal");
+      });
+
+    document
+      .getElementById("closeAddDessertModal")
+      .addEventListener("click", function () {
+        closeModal("addDessertModal");
+      });
+  }
+});
+
+// Event listeners for add item and dessert buttons
+document.addEventListener("DOMContentLoaded", function () {
+  const menu = document.getElementById("box-menu");
+  if (menu) {
+    document
+      .getElementById("addItemButton")
+      .addEventListener("click", function () {
+        openModal("addItemModal");
+      });
+
+    document
+      .getElementById("addDessertButton")
+      .addEventListener("click", function () {
+        openModal("addDessertModal");
+      });
+  }
+});
+
+function showAddItemButton() {
+  const addItemButton = document.getElementById("addItemButton");
+  const addDessertButton = document.getElementById("addDessertButton");
+  if (JSON.parse(localStorage.getItem("signedIn"))) {
+    addItemButton.style.display = "block";
+    addDessertButton.style.display = "block";
+  } else {
+    addItemButton.style.display = "none";
+    addDessertButton.style.display = "none";
+  }
 }
