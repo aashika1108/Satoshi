@@ -68,7 +68,7 @@ p {
 
 .logo img {
   margin: 1em;
-  width: 15rem
+  width: 15rem;
 }
 
 .menu-box .menu-toggle {
@@ -332,6 +332,7 @@ p {
   color: #444;
   font-size: 45px;
   margin-bottom: 20px;
+  text-align: center;
 }
 
 .container-specialty {
@@ -1196,7 +1197,12 @@ input[type="submit"]:hover {
 }
 
 /*---------------------------------------------------------Sign Up------------------------------------------------------------*/
-
+#sign-up {
+  background-image: url("../images/Sign\ IN\ \(1\).png");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
 .container-sign-up {
   background-color: rgba(255, 255, 255, 0.8);
   padding: 50px;
@@ -1209,7 +1215,6 @@ input[type="submit"]:hover {
   margin: auto;
   box-sizing: border-box;
 }
-
 input[type="text"],
 input[type="email"],
 input[type="password"],
@@ -1220,15 +1225,6 @@ input[type="submit"] {
   border: 1px solid #ccc;
   border-radius: 5px;
   box-sizing: border-box;
-}
-
-
-
-#sign-up {
-  background-image: url("../images/Sign\ IN\ \(1\).png");
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
 }
 
 #message {
@@ -1265,8 +1261,6 @@ input[type="submit"] {
 .show {
   display: block;
 }
-
-
 
 /* Styles for the modal */
 .modal {
@@ -1344,7 +1338,6 @@ input[type="submit"] {
   }
 }
 
-
 @media screen and (max-width: 600px) {
   .about-us-section h2 {
     font-size: 1.5rem;
@@ -1365,7 +1358,7 @@ input[type="submit"] {
 
 /*------------------------------------Hide Non Essential Content---------------------------------------------*/
 .desktop-only {
-  display: none; 
+  display: none;
 }
 
 @media (min-width: 768px) {
@@ -1382,20 +1375,20 @@ input[type="submit"] {
 
 @media screen and (max-width: 768px) {
   #scrollToTopBtn {
-      display: block;
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 9999;
-      background-color: #333;
-      color: #fff;
-      border: none;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      font-size: 20px;
-      cursor: pointer;
-      text-align: center;
-      line-height: 40px;
+    display: block;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 40px;
   }
 }
