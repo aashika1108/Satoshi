@@ -12,24 +12,24 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
   const searchInput = document.getElementById("searchInput");
   if (searchInput) {
-      const menuItems = document.querySelectorAll(".recipe");
+    const menuItems = document.querySelectorAll(".recipe");
 
-      searchInput.addEventListener("input", function () {
-          const searchText = searchInput.value.toLowerCase();
-          menuItems.forEach(function (menuItem) {
-              const titleElement = menuItem.querySelector("h3");
-              if (titleElement) {
-                  const title = titleElement.textContent.toLowerCase();
-                  if (title.includes(searchText)) {
-                      menuItem.style.display = "flex";
-                  } else {
-                      menuItem.style.display = "none";
-                  }
-              }
-          });
+    searchInput.addEventListener("input", function () {
+      const searchText = searchInput.value.toLowerCase();
+      menuItems.forEach(function (menuItem) {
+        const titleElement = menuItem.querySelector("h3");
+        if (titleElement) {
+          const title = titleElement.textContent.toLowerCase();
+          if (title.includes(searchText)) {
+            menuItem.style.display = "flex";
+          } else {
+            menuItem.style.display = "none";
+          }
+        }
       });
+    });
   } else {
-      console.error("Search input element not found.");
+    console.error("Search input element not found.");
   }
 });
 
@@ -272,161 +272,153 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  const menu = document.getElementById("box-menu");
-  if (menu) {
-    showAddItemButton();
-    // Add event listener for adding menu items button
-    document
-      .getElementById("addItemButton")
-      .addEventListener("click", function () {
-        openModal("addItemModal");
-      });
-
-    // Add event listener for adding dessert items button
-    document
-      .getElementById("addDessertButton")
-      .addEventListener("click", function () {
-        openModal("addDessertModal");
-      });
-
-    // Event listener for closing the modal when the close button is clicked
-    document.querySelectorAll(".close").forEach(function (element) {
-      element.addEventListener("click", function () {
-        closeModal(this.getAttribute("data-modal"));
-      });
+  showAddItemButton();
+  // Add event listener for adding menu items button
+  document
+    .getElementById("addItemButton")
+    .addEventListener("click", function () {
+      openModal("addItemModal");
     });
 
-    // Event listener for closing the modal when clicking outside the modal
-    window.addEventListener("click", function (event) {
-      if (event.target.classList.contains("modal")) {
-        closeModal(event.target.getAttribute("data-modal"));
-      }
+  // Add event listener for adding dessert items button
+  document
+    .getElementById("addDessertButton")
+    .addEventListener("click", function () {
+      openModal("addDessertModal");
     });
 
-    // Function to open the modal
-    function openModal(modalId) {
-      document.getElementById(modalId).style.display = "block";
+  // Event listener for closing the modal when the close button is clicked
+  document.querySelectorAll(".close").forEach(function (element) {
+    element.addEventListener("click", function () {
+      closeModal(this.getAttribute("data-modal"));
+    });
+  });
+
+  // Event listener for closing the modal when clicking outside the modal
+  window.addEventListener("click", function (event) {
+    if (event.target.classList.contains("modal")) {
+      closeModal(event.target.getAttribute("data-modal"));
     }
+  });
 
-    // Function to close the modal
-    function closeModal(modalId) {
-      document.getElementById(modalId).style.display = "none";
-    }
-
-    function handleAddItemForm(event) {
-      event.preventDefault();
-
-      const itemName = document.getElementById("itemName").value;
-      const itemDescription = document.getElementById("itemDescription").value;
-      const itemImageURL = document.getElementById("itemImageURL").value;
-
-      // Create HTML elements for the new item
-      const newItemHTML = `
-        <div class="recipe">
-            <img src="${itemImageURL}" alt="${itemName}">
-            <h3>${itemName}</h3>
-            <p>${itemDescription}</p>
-        </div>
-    `;
-
-      // Append the new item to the menu section
-      const menuItemsContainer = document.getElementById("menuItems");
-      menuItemsContainer.appendChild(document.createElement("div")).innerHTML =
-        newItemHTML; // Add the new item using appendChild()
-
-      // Save menu items to local storage
-      const menuItems = JSON.parse(localStorage.getItem("menuItems")) || [];
-      menuItems.unshift(newItemHTML); // Add the new item at the beginning of the array
-      localStorage.setItem("menuItems", JSON.stringify(menuItems));
-
-      // Clear form fields
-      document.getElementById("itemName").value = "";
-      document.getElementById("itemDescription").value = "";
-      document.getElementById("itemImageURL").value = "";
-
-      // Close the modal
-      closeModal("addItemModal");
-    }
-
-    // Function to handle form submission and add dessert item
-    function handleDessertItemForm(event) {
-      event.preventDefault();
-
-      const itemName = document.getElementById("itemDessertName").value;
-      const itemDescription = document.getElementById(
-        "itemDessertDescription"
-      ).value;
-      const itemImageURL = document.getElementById("itemDessertImageURL").value;
-
-      // Create HTML elements for the new item
-      const newItemHTML = `
-        <div class="recipe">
-            <img src="${itemImageURL}" alt="${itemName}">
-            <h3>${itemName}</h3>
-            <p>${itemDescription}</p>
-        </div>
-    `;
-
-      // Append the new item to the dessert section
-      const dessertItemsContainer = document.getElementById("dessert-item");
-      dessertItemsContainer.appendChild(
-        document.createElement("div")
-      ).innerHTML = newItemHTML; // Add the new item using appendChild()
-
-      // Save dessert items to local storage
-      const dessertItems =
-        JSON.parse(localStorage.getItem("dessertItems")) || [];
-      dessertItems.unshift(newItemHTML); // Add the new item at the beginning of the array
-      localStorage.setItem("dessertItems", JSON.stringify(dessertItems));
-
-      // Clear form fields
-      document.getElementById("itemDessertName").value = "";
-      document.getElementById("itemDessertDescription").value = "";
-      document.getElementById("itemDessertImageURL").value = "";
-
-      // Close the modal
-      closeModal("addDessertModal");
-    }
-    // Event listener for adding item form submission
-    document
-      .getElementById("addItemForm")
-      .addEventListener("submit", handleAddItemForm);
-
-    // Event listener for adding dessert item form submission
-    document
-      .getElementById("addDessertForm")
-      .addEventListener("submit", handleDessertItemForm);
+  // Function to open the modal
+  function openModal(modalId) {
+    document.getElementById(modalId).style.display = "block";
   }
+
+  // Function to close the modal
+  function closeModal(modalId) {
+    document.getElementById(modalId).style.display = "none";
+  }
+
+  function handleAddItemForm(event) {
+    event.preventDefault();
+
+    const itemName = document.getElementById("itemName").value;
+    const itemDescription = document.getElementById("itemDescription").value;
+    const itemImageURL = document.getElementById("itemImageURL").value;
+
+    // Create HTML elements for the new item
+    const newItemHTML = `
+        <div class="recipe">
+            <img src="${itemImageURL}" alt="${itemName}">
+            <h3>${itemName}</h3>
+            <p>${itemDescription}</p>
+        </div>
+    `;
+
+    // Append the new item to the menu section
+    const menuItemsContainer = document.getElementById("menuItems");
+    menuItemsContainer.appendChild(document.createElement("div")).innerHTML =
+      newItemHTML; // Add the new item using appendChild()
+
+    // Save menu items to local storage
+    const menuItems = JSON.parse(localStorage.getItem("menuItems")) || [];
+    menuItems.unshift(newItemHTML); // Add the new item at the beginning of the array
+    localStorage.setItem("menuItems", JSON.stringify(menuItems));
+
+    // Clear form fields
+    document.getElementById("itemName").value = "";
+    document.getElementById("itemDescription").value = "";
+    document.getElementById("itemImageURL").value = "";
+
+    // Close the modal
+    closeModal("addItemModal");
+  }
+
+  // Function to handle form submission and add dessert item
+  function handleDessertItemForm(event) {
+    event.preventDefault();
+
+    const itemName = document.getElementById("itemDessertName").value;
+    const itemDescription = document.getElementById(
+      "itemDessertDescription"
+    ).value;
+    const itemImageURL = document.getElementById("itemDessertImageURL").value;
+
+    // Create HTML elements for the new item
+    const newItemHTML = `
+        <div class="recipe">
+            <img src="${itemImageURL}" alt="${itemName}">
+            <h3>${itemName}</h3>
+            <p>${itemDescription}</p>
+        </div>
+    `;
+
+    // Append the new item to the dessert section
+    const dessertItemsContainer = document.getElementById("dessert-item");
+    dessertItemsContainer.appendChild(document.createElement("div")).innerHTML =
+      newItemHTML; // Add the new item using appendChild()
+
+    // Save dessert items to local storage
+    const dessertItems = JSON.parse(localStorage.getItem("dessertItems")) || [];
+    dessertItems.unshift(newItemHTML); // Add the new item at the beginning of the array
+    localStorage.setItem("dessertItems", JSON.stringify(dessertItems));
+
+    // Clear form fields
+    document.getElementById("itemDessertName").value = "";
+    document.getElementById("itemDessertDescription").value = "";
+    document.getElementById("itemDessertImageURL").value = "";
+
+    // Close the modal
+    closeModal("addDessertModal");
+  }
+  // Event listener for adding item form submission
+  document
+    .getElementById("addItemForm")
+    .addEventListener("submit", handleAddItemForm);
+
+  // Event listener for adding dessert item form submission
+  document
+    .getElementById("addDessertForm")
+    .addEventListener("submit", handleDessertItemForm);
 });
 
 // Load menu items from local storage when the page loads
 document.addEventListener("DOMContentLoaded", function () {
-  const menu = document.getElementById("box-menu");
-  if (menu) {
-    const menuItems = JSON.parse(localStorage.getItem("menuItems")) || [];
-    const menuItemsContainer = document.getElementById("menuItems");
+  const menuItems = JSON.parse(localStorage.getItem("menuItems")) || [];
+  const menuItemsContainer = document.getElementById("menuItems");
 
-    menuItems.forEach(function (itemHTML) {
-      // Check if the item already exists before appending
-      if (!isItemAlreadyAdded(menuItemsContainer, itemHTML)) {
-        const newItemElement = document.createElement("div");
-        newItemElement.innerHTML = itemHTML;
-        menuItemsContainer.appendChild(newItemElement);
-      }
-    });
+  menuItems.forEach(function (itemHTML) {
+    // Check if the item already exists before appending
+    if (!isItemAlreadyAdded(menuItemsContainer, itemHTML)) {
+      const newItemElement = document.createElement("div");
+      newItemElement.innerHTML = itemHTML;
+      menuItemsContainer.appendChild(newItemElement);
+    }
+  });
 
-    const dessertItems = JSON.parse(localStorage.getItem("dessertItems")) || [];
-    const dessertItemsContainer = document.getElementById("dessert-item");
+  const dessertItems = JSON.parse(localStorage.getItem("dessertItems")) || [];
+  const dessertItemsContainer = document.getElementById("dessert-item");
 
-    dessertItems.forEach(function (itemHTML) {
-      // Check if the item already exists before appending
-      if (!isItemAlreadyAdded(dessertItemsContainer, itemHTML)) {
-        const newItemElement = document.createElement("div");
-        newItemElement.innerHTML = itemHTML;
-        dessertItemsContainer.appendChild(newItemElement);
-      }
-    });
-  }
+  dessertItems.forEach(function (itemHTML) {
+    // Check if the item already exists before appending
+    if (!isItemAlreadyAdded(dessertItemsContainer, itemHTML)) {
+      const newItemElement = document.createElement("div");
+      newItemElement.innerHTML = itemHTML;
+      dessertItemsContainer.appendChild(newItemElement);
+    }
+  });
 });
 
 // Function to check if an item already exists in a container
@@ -452,38 +444,32 @@ function openModal(modalId) {
 
 // Event listener for close buttons
 document.addEventListener("DOMContentLoaded", function () {
-  const menu = document.getElementById("box-menu");
-  if (menu) {
-    document
-      .getElementById("closeAddItemModal")
-      .addEventListener("click", function () {
-        closeModal("addItemModal");
-      });
+  document
+    .getElementById("closeAddItemModal")
+    .addEventListener("click", function () {
+      closeModal("addItemModal");
+    });
 
-    document
-      .getElementById("closeAddDessertModal")
-      .addEventListener("click", function () {
-        closeModal("addDessertModal");
-      });
-  }
+  document
+    .getElementById("closeAddDessertModal")
+    .addEventListener("click", function () {
+      closeModal("addDessertModal");
+    });
 });
 
 // Event listeners for add item and dessert buttons
 document.addEventListener("DOMContentLoaded", function () {
-  const menu = document.getElementById("box-menu");
-  if (menu) {
-    document
-      .getElementById("addItemButton")
-      .addEventListener("click", function () {
-        openModal("addItemModal");
-      });
+  document
+    .getElementById("addItemButton")
+    .addEventListener("click", function () {
+      openModal("addItemModal");
+    });
 
-    document
-      .getElementById("addDessertButton")
-      .addEventListener("click", function () {
-        openModal("addDessertModal");
-      });
-  }
+  document
+    .getElementById("addDessertButton")
+    .addEventListener("click", function () {
+      openModal("addDessertModal");
+    });
 });
 
 function showAddItemButton() {
