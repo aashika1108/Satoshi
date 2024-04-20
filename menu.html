@@ -45,7 +45,11 @@
     <main class="main-menu-page">
         <input type="text" id="searchInput" placeholder="Search for menu items...">
         <h1 class="box-menu">Chicken Recipes</h1>
+
         <div class="recipe-grid" id="menuItems">
+            <div class="recipe" id="addItemButton">
+                <img src="images/images-removebg-preview.png" alt="add more icon">
+            </div>
             <div class="recipe">
                 <img src="images/chicken_handi.jpg" alt="Chicken Marengo dish">
                 <h3>Chicken Marengo</h3>
@@ -81,12 +85,38 @@
                 <p>For the topping, boil the potatoes in salted water until tender. Drain and push through a potato
                     ricer or mash until smooth.</p>
             </div>
+
         </div>
+
+        <!-- Modal for adding menu items -->
+        <div id="addItemModal" class="modal" style="display: none;">
+            <!-- Content for adding menu items -->
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('addItemModal')">&times;</span>
+                <h2>Add New Menu Item</h2>
+                <form id="addItemForm">
+                    <label for="itemName">Item Name:</label>
+                    <input type="text" id="itemName" required><br>
+
+                    <label for="itemDescription">Item Description:</label><br>
+                    <textarea id="itemDescription" required></textarea><br>
+
+                    <label for="itemImageURL">Image URL:</label>
+                    <input type="text" id="itemImageURL" required><br>
+
+                    <button type="submit">Add Item</button>
+                </form>
+            </div>
+        </div>
+
         <br>
 
 
         <h1 class="box-menu">Desserts</h1>
-        <div class="recipe-grid">
+        <div class="recipe-grid" id="dessert-item">
+            <div class="recipe" id="addDessertButton">
+                <img src="images/images-removebg-preview.png" alt="add more icon">
+            </div>
             <div class="recipe">
                 <img src="images/apple_blackberry.jpg" alt="Apple-Blackberry Crumbs">
                 <h3>Apple-Blackberry Crumbs</h3>
@@ -106,12 +136,34 @@
             <div class="recipe">
                 <img src="images/cherry_cheescake.jpg" alt="Cherry Cheesecake">
                 <h3>Cherry Cheesecake</h3>
-                <p>Cherry cheesecake – a delectable combination of rich, velvety cheesecake topped with luscious cherry
+                <p>Cherry cheesecake - a delectable combination of rich, velvety cheesecake topped with luscious cherry
                     compote.</p>
             </div>
-        </div>
-    </main>
+            <!-- Add a button for users to add dessert items -->
+             </div>
 
+                <!-- Modal for adding dessert items -->
+                <div id="addDessertModal" class="modal" style="display: none;">
+                    <!-- Content for adding dessert items -->
+                    <div class="modal-content">
+                        <span class="close" onclick="closeModal('addDessertModal')">&times;</span>
+                        <h2>Add New Dessert Item</h2>
+                        <form id="addDessertForm">
+                            <label for="itemDessertName">Item Name:</label>
+                            <input type="text" id="itemDessertName" required><br>
+
+                            <label for="itemDessertDescription">Item Description:</label><br>
+                            <textarea id="itemDessertDescription" required></textarea><br>
+
+                            <label for="itemDessertImageURL">Image URL:</label>
+                            <input type="text" id="itemDessertImageURL" required><br>
+
+                            <button type="submit">Add Item</button>
+                        </form>
+                    </div>
+                </div>
+    </main>
+    <script src="./js/main.js"></script>
     <footer>
         <div class="footer-content">
             <div class="footer-section">
@@ -128,13 +180,11 @@
                 <h4>Contact</h4>
                 <ul>
                     <i class="fas fa-map-marker-alt"></i>
-                    <span><a href="https://www.google.com/maps?q=Scarborough+Town+Centre">Scarborough Town Centre</a></span><br>
-                    <i class="fas fa-phone"></i>  
-                    <span><a href="tel:+1819-833-0312">+1-437-556-8832</a></span><br>
-                    <i class="fas fa-envelope"></i>          
-                    <span><a href="mailto:amisha.nakrani1106@gmail.com">tabletales@gmail.com</a></span><br>
-                    <i class="fas fa-message"></i>
-                    <span><a href="https://api.whatsapp.com/send?phone=14375568832" target="_blank">Message us on WhatsApp</a></span>
+                    <span>Scarborough Town Centre</span><br>
+                    <i class="fas fa-phone"></i>
+                    <span>+1 4356789032</span><br>
+                    <i class="fas fa-envelope"></i>
+                    <span><a href="mailto:tabletales@gmail.com">tabletales@gmail.com</a></span>
                 </ul>
             </div>
             <div class="footer-section">
