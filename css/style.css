@@ -210,6 +210,7 @@ p {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -231,28 +232,37 @@ p {
   color: #fff;
   text-decoration: none;
 }
+
 @media screen and (max-width: 768px) {
   .intro-wrap {
-    flex-direction: column-reverse; /* Reverse the flex direction to stack items vertically and place image first */
+    flex-direction: column-reverse;
+    /* Reverse the flex direction to stack items vertically and place image first */
   }
 
   .intro-img {
-    width: 100%; /* Make the image full width */
+    width: 100%;
+    /* Make the image full width */
   }
 
   .intro-title {
-    width: 100%; /* Make the content full width */
-    text-align: center; /* Center align the content */
+    width: 100%;
+    /* Make the content full width */
+    text-align: center;
+    /* Center align the content */
   }
+
   .intro-title h1 {
     color: #363958;
     font-size: 60px;
     line-height: 70px;
     margin-bottom: 10px;
   }
+
   .intro-title p {
-    width: 100%; /* Make the content full width */
-    text-align: justify; /* Center align the content */
+    width: 100%;
+    /* Make the content full width */
+    text-align: justify;
+    /* Center align the content */
   }
 }
 
@@ -398,6 +408,7 @@ p {
     display: flex;
     flex-wrap: wrap;
   }
+
   .delivery-box {
     width: 100%;
     margin-bottom: 20px;
@@ -444,7 +455,7 @@ footer {
   padding: 0;
 }
 
-.footer-section ul li a:link {
+.footer-section ul li a {
   color: #ededed;
   text-decoration: none;
 }
@@ -457,13 +468,13 @@ footer {
   line-height: 1.5;
 }
 
-.footer-section ul span {
-  font-size: 17px;
-}
-
-.footer-section ul span a:link {
+.footer-section ul span a {
   color: #ededed;
   text-decoration: none;
+}
+
+.footer-section ul span a:hover {
+  color: burlywood;
 }
 
 .footer-section li {
@@ -622,6 +633,7 @@ main h1 {
   font-size: 1.2rem;
   color: #606163;
   margin-bottom: 2rem;
+  text-align: justify;
 }
 
 .about-us-section .row {
@@ -632,7 +644,10 @@ main h1 {
 
 .about-us-section .row li {
   font-size: 1.2rem;
+  color: #606163;
+  text-align: justify;
 }
+
 .about-us-section .col-lg-6 {
   flex: 1;
   padding: 2rem;
@@ -694,9 +709,11 @@ main h1 {
   .about-us-section .col-lg-6 {
     flex: 100%;
   }
+
   .about-us-section .order-lg-3 {
     order: 1;
   }
+
   .about-us-section .order-lg-4 {
     order: 2;
   }
@@ -917,7 +934,8 @@ button[type="submit"]:hover {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 0.5em; /* Add gap between columns */
+  gap: 0.5em;
+  /* Add gap between columns */
 }
 
 .team-heading {
@@ -946,9 +964,11 @@ button[type="submit"]:hover {
   transform: scale(1, 1) translateX(-25px);
   transition: all 0.2s linear 0s;
 }
+
 .our-team:hover img {
   transform: scale(1, 1) translateX(0);
 }
+
 .our-team .over-layer {
   width: 100%;
   height: 100%;
@@ -957,6 +977,7 @@ button[type="submit"]:hover {
   top: 0;
   left: 0;
 }
+
 .our-team .team-content {
   width: 90%;
   position: absolute;
@@ -964,9 +985,11 @@ button[type="submit"]:hover {
   padding: 0 25px;
   transition: all 0.4s ease 0s;
 }
+
 .our-team:hover .team-content {
   bottom: 1%;
 }
+
 .our-team .title {
   font-size: 20px;
   font-weight: bold;
@@ -974,6 +997,7 @@ button[type="submit"]:hover {
   margin: 20px 0 5px;
   text-transform: uppercase;
 }
+
 .our-team .post {
   display: block;
   font-size: 17px;
@@ -981,15 +1005,18 @@ button[type="submit"]:hover {
   margin-bottom: 5px;
   text-transform: capitalize;
 }
+
 .our-team .description {
   font-size: 15px;
   color: #fff;
   transform: translateY(100%);
   transition: all 0.3s ease 0.1s;
 }
+
 .our-team:hover .description {
   transform: translateY(0);
 }
+
 .our-team .social-links {
   margin: 0;
   padding: 0;
@@ -1002,16 +1029,20 @@ button[type="submit"]:hover {
   top: 0;
   right: 0;
 }
+
 .our-team .social-links li {
   margin: 20px 0;
 }
+
 .our-team .social-links li a {
   color: #fff;
   padding: 10px 0;
 }
+
 .our-team .social-links li a:hover {
   text-decoration: none;
 }
+
 @media only screen and (max-width: 768px) {
   .team-container {
     flex-direction: column;
@@ -1086,6 +1117,7 @@ button[type="submit"]:hover {
 
 .menu-item-desc p {
   line-height: 1.6;
+  text-align: justify;
 }
 
 @media screen and (min-width: 992px) {
@@ -1099,9 +1131,9 @@ button[type="submit"]:hover {
 
   .menu-item-img {
     width: 125px;
-    height: 25px;
   }
 }
+
 .container-sign-in {
   background-color: rgba(255, 255, 255, 0.8);
   padding: 50px;
@@ -1158,6 +1190,7 @@ input[type="submit"]:hover {
   height: 100vh;
   background-size: cover;
 }
+
 .container-sign-up {
   background-color: rgba(255, 255, 255, 0.8);
   padding: 50px;
@@ -1183,7 +1216,7 @@ input[type="submit"] {
   box-sizing: border-box;
 }
 
-/* Our Team */ 
+/* Our Team */
 
 
 .section-team {
@@ -1199,7 +1232,7 @@ input[type="submit"] {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 0.5em; 
+  gap: 0.5em;
 }
 
 .team-heading {
@@ -1228,9 +1261,11 @@ input[type="submit"] {
   transform: scale(1, 1) translateX(-25px);
   transition: all 0.2s linear 0s;
 }
+
 .our-team:hover img {
   transform: scale(1, 1) translateX(0);
 }
+
 .our-team .over-layer {
   width: 100%;
   height: 100%;
@@ -1239,6 +1274,7 @@ input[type="submit"] {
   top: 0;
   left: 0;
 }
+
 .our-team .team-content {
   width: 90%;
   position: absolute;
@@ -1246,9 +1282,11 @@ input[type="submit"] {
   padding: 0 25px;
   transition: all 0.4s ease 0s;
 }
+
 .our-team:hover .team-content {
   bottom: 1%;
 }
+
 .our-team .title {
   font-size: 20px;
   font-weight: bold;
@@ -1256,6 +1294,7 @@ input[type="submit"] {
   margin: 20px 0 5px;
   text-transform: uppercase;
 }
+
 .our-team .post {
   display: block;
   font-size: 17px;
@@ -1263,15 +1302,18 @@ input[type="submit"] {
   margin-bottom: 5px;
   text-transform: capitalize;
 }
+
 .our-team .description {
   font-size: 15px;
   color: #fff;
   transform: translateY(100%);
   transition: all 0.3s ease 0.1s;
 }
+
 .our-team:hover .description {
   transform: translateY(0);
 }
+
 .our-team .social-links {
   margin: 0;
   padding: 0;
@@ -1284,16 +1326,20 @@ input[type="submit"] {
   top: 0;
   right: 0;
 }
+
 .our-team .social-links li {
   margin: 20px 0;
 }
+
 .our-team .social-links li a {
   color: #fff;
   padding: 10px 0;
 }
+
 .our-team .social-links li a:hover {
   text-decoration: none;
 }
+
 @media only screen and (max-width: 768px) {
   .team-container {
     flex-direction: column;
@@ -1304,7 +1350,7 @@ input[type="submit"] {
   }
 }
 
-/* Our Team */ 
+/* Our Team */
 
 
 .section-team {
@@ -1320,7 +1366,7 @@ input[type="submit"] {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 0.5em; 
+  gap: 0.5em;
 }
 
 .team-heading {
@@ -1349,9 +1395,11 @@ input[type="submit"] {
   transform: scale(1, 1) translateX(-25px);
   transition: all 0.2s linear 0s;
 }
+
 .our-team:hover img {
   transform: scale(1, 1) translateX(0);
 }
+
 .our-team .over-layer {
   width: 100%;
   height: 100%;
@@ -1360,6 +1408,7 @@ input[type="submit"] {
   top: 0;
   left: 0;
 }
+
 .our-team .team-content {
   width: 90%;
   position: absolute;
@@ -1367,9 +1416,11 @@ input[type="submit"] {
   padding: 0 25px;
   transition: all 0.4s ease 0s;
 }
+
 .our-team:hover .team-content {
   bottom: 1%;
 }
+
 .our-team .title {
   font-size: 20px;
   font-weight: bold;
@@ -1377,6 +1428,7 @@ input[type="submit"] {
   margin: 20px 0 5px;
   text-transform: uppercase;
 }
+
 .our-team .post {
   display: block;
   font-size: 17px;
@@ -1384,15 +1436,18 @@ input[type="submit"] {
   margin-bottom: 5px;
   text-transform: capitalize;
 }
+
 .our-team .description {
   font-size: 15px;
   color: #fff;
   transform: translateY(100%);
   transition: all 0.3s ease 0.1s;
 }
+
 .our-team:hover .description {
   transform: translateY(0);
 }
+
 .our-team .social-links {
   margin: 0;
   padding: 0;
@@ -1405,16 +1460,20 @@ input[type="submit"] {
   top: 0;
   right: 0;
 }
+
 .our-team .social-links li {
   margin: 20px 0;
 }
+
 .our-team .social-links li a {
   color: #fff;
   padding: 10px 0;
 }
+
 .our-team .social-links li a:hover {
   text-decoration: none;
 }
+
 @media only screen and (max-width: 768px) {
   .team-container {
     flex-direction: column;
@@ -1434,8 +1493,10 @@ input[type="submit"] {
 
 #message {
   display: none;
-  color: green; /* Change the color to suit your design */
-  margin-top: 10px; /* Adjust the margin as needed */
+  color: green;
+  /* Change the color to suit your design */
+  margin-top: 10px;
+  /* Adjust the margin as needed */
 }
 
 .dropdown {
@@ -1448,7 +1509,7 @@ input[type="submit"] {
   position: absolute;
   background-color: #f9f9f9;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
@@ -1466,3 +1527,85 @@ input[type="submit"] {
 .show {
   display: block;
 }
+
+/*Typography*/
+
+/* Media query for smaller screens */
+@media screen and (max-width: 600px) {
+  .intro-title h1 {
+    font-size: 45px;
+    /* Further decreased font size for smaller screens */
+    line-height: 40px;
+    /* Further decreased line height for smaller screens */
+    margin-bottom: 5px;
+    /* Further reduced margin-bottom for tighter spacing */
+  }
+}
+
+
+/* Media query for smaller screens */
+@media screen and (max-width: 600px) {
+  .about-us-section h2 {
+    font-size: 1.5rem;
+    /* Further decreased font size for smaller screens */
+    margin-bottom: 1rem;
+    /* Further reduced margin-bottom for tighter spacing */
+  }
+
+  .about-us-section p {
+    font-size: 0.9rem;
+    /* Further decreased font size for smaller screens */
+    margin-bottom: 1rem;
+    /* Further reduced margin-bottom for tighter spacing */
+  }
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 600px) {
+  .about-us-section .row li {
+    font-size: 0.9rem;
+    /* Further decreased font size for smaller screens */
+  }
+}
+
+/*Hide Non-Essential Elements*/
+
+.desktop-only {
+  display: none; /* Hide the elements by default on all screen sizes */
+}
+
+@media (min-width: 768px) {
+  /* Show the elements only on screens larger than 768px (desktop-sized screens) */
+  .desktop-only {
+    display: block;
+  }
+}
+
+/*Scroll To Top Button*/
+
+/* Initially hide the scroll-to-top button */
+#scrollToTopBtn {
+  display: none;
+}
+
+/* Show the scroll-to-top button when the viewport width is less than or equal to a certain size */
+@media screen and (max-width: 768px) {
+  #scrollToTopBtn {
+      display: block;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 9999;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      font-size: 20px;
+      cursor: pointer;
+      text-align: center;
+      line-height: 40px;
+  }
+}
+
